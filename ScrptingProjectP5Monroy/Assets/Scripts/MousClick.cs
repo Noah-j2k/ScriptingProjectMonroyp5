@@ -4,7 +4,18 @@ using UnityEngine;
 
 public class MousClick : MonoBehaviour
 {
-    // Start is called before the first frame update
+    private Rigidbody rb;
+    private void Awake()
+    {
+        rb = GetComponent<Rigidbody>();
+    }
+    private void OnMouseDown()
+    {
+        rb.AddForce(- transform.forward * 500f);
+        rb.useGravity = true;
+    }
+    // Start is called before the first
+    //frame update
     void Start()
     {
         
